@@ -5,9 +5,4 @@ class ResponseModel<T> {
   T data;
 
   ResponseModel({this.statusCode, this.message, this.data});
-
-  // ResponseModel.fromJson(dynamic json) {
-  //   statusCode = statusCode;
-  //   data = data.fromJson(json);
-  // }
 }

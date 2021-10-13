@@ -9,7 +9,12 @@ abstract class HttpGateway {
   static Future<ResponseModel<T>> get<T>(
       {@required String url, @required T Function(Object) model}) async {
     try {
-      var response = await http.get(url).timeout(Duration(seconds: 60));
+      Map<String, String> _header = {
+        "Content-Type": "application/json",
+        "Authorization": "",
+      };
+      var response =
+          await http.get(url, headers: _header).timeout(Duration(seconds: 60));
       if (response.statusCode == StatusCodes.ok) {
         return ResponseModel<T>(
           statusCode: StatusCodes.ok,
